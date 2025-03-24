@@ -1,0 +1,144 @@
+@import url("../button/style.css");
+
+.wrapper {
+  @apply flex flex-col gap-2 p-4;
+}
+
+.label {
+  @apply pl-4;
+}
+
+.button {
+  @apply w-[400px] justify-between p-0;
+}
+
+.date-inputs {
+  @apply flex w-full items-center;
+}
+
+.date-input {
+  @apply h-full w-0 flex-1 border-none bg-transparent px-4 py-2 text-sm outline-none placeholder:text-gray-500 dark:placeholder:text-gray-400;
+}
+
+.date-input[type="date"] {
+  @apply appearance-none;
+}
+
+.date-input[type="date"]::-webkit-calendar-picker-indicator {
+  @apply opacity-0;
+}
+
+.date-display {
+  @apply flex-1 px-4 py-2 text-sm text-gray-500 dark:text-gray-400;
+}
+
+.date-input[aria-invalid="true"] {
+  @apply text-red-500 dark:text-red-400;
+}
+
+.popover {
+  @apply z-50 flex flex-col overflow-auto overscroll-contain rounded-lg border border-solid border-gray-250 bg-white p-4 text-black shadow-lg focus-visible:ariakit-outline-input dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:shadow-lg-dark;
+  min-width: 400px;
+  max-width: 400px;
+}
+
+.calendar {
+  @apply w-full;
+}
+
+.calendar-header {
+  @apply mb-4;
+}
+
+.calendar-navigation {
+  @apply flex items-center justify-between gap-2;
+}
+
+.nav-button {
+  @apply rounded p-2 hover:bg-gray-100 focus-visible:ariakit-outline-input dark:hover:bg-gray-600;
+}
+
+.month-select,
+.year-select {
+  @apply rounded px-2 py-1 hover:bg-gray-100 focus-visible:ariakit-outline-input dark:hover:bg-gray-600;
+}
+
+.month-popover,
+.year-popover {
+  @apply z-[60] max-h-[200px] overflow-auto rounded-lg border border-solid border-gray-250 bg-white p-1 text-black shadow-lg dark:border-gray-600 dark:bg-gray-700 dark:text-white;
+}
+
+.month-item,
+.year-item {
+  @apply rounded px-2 py-1 hover:bg-gray-100 focus-visible:ariakit-outline-input dark:hover:bg-gray-600;
+}
+
+.calendar-grid {
+  @apply grid gap-1;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: min-content;
+}
+
+.calendar-day-header {
+  @apply py-2 text-center text-sm font-medium text-gray-600 dark:text-gray-400;
+}
+
+.calendar-week {
+  @apply grid gap-1;
+  grid-template-columns: repeat(7, 1fr);
+  display: contents;
+}
+
+.calendar-week[data-active-item] {
+  @apply bg-gray-50 dark:bg-gray-800;
+}
+
+.calendar-day {
+  @apply relative flex aspect-square cursor-pointer items-center justify-center rounded text-sm hover:bg-gray-100 focus-visible:ariakit-outline-input dark:hover:bg-gray-600;
+  min-width: 40px;
+  min-height: 40px;
+  width: 100%;
+  height: 100%;
+}
+
+.calendar-day.other-month {
+  @apply text-gray-400 dark:text-gray-500;
+}
+
+.calendar-day.selected {
+  @apply bg-blue-100 dark:bg-blue-900;
+}
+
+.calendar-day.start,
+.calendar-day.end {
+  @apply bg-blue-600 text-white hover:bg-blue-700;
+}
+
+.calendar-day[data-active-item] {
+  @apply bg-blue-100 dark:bg-blue-900;
+  z-index: 1;
+}
+
+.calendar-day:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-700;
+}
+
+/* Ensure consistent sizing and spacing */
+.calendar-grid > * {
+  @apply min-w-0;
+}
+
+.calendar-week > * {
+  @apply min-w-0;
+}
+
+/* Improve touch targets */
+.calendar-day {
+  @apply touch-manipulation;
+}
+
+/* Ensure proper text alignment */
+.calendar-day,
+.calendar-day-header {
+  @apply text-center;
+}
